@@ -42,11 +42,18 @@ namespace Warehouse_Sol
             this.melos2TB = new System.Windows.Forms.TextBox();
             this.changeDetBTN = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.printPreviewBTN = new System.Windows.Forms.Button();
+            this.dataGV = new System.Windows.Forms.DataGridView();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.saveBTN = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.quantityTBGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mUnitCBGV = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.materialCBGV = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.sizeCBGV = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.categoryCBGV = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -156,24 +163,35 @@ namespace Warehouse_Sol
             this.button1.TabIndex = 11;
             this.button1.Text = "Διαγραφή \'Ολων";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // printPreviewBTN
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(363, 716);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(145, 49);
-            this.button2.TabIndex = 13;
-            this.button2.Text = "Προεπισκόπηση";
-            this.button2.UseVisualStyleBackColor = true;
+            this.printPreviewBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.printPreviewBTN.Location = new System.Drawing.Point(363, 716);
+            this.printPreviewBTN.Name = "printPreviewBTN";
+            this.printPreviewBTN.Size = new System.Drawing.Size(145, 49);
+            this.printPreviewBTN.TabIndex = 13;
+            this.printPreviewBTN.Text = "Προεπισκόπηση";
+            this.printPreviewBTN.UseVisualStyleBackColor = true;
+            this.printPreviewBTN.Click += new System.EventHandler(this.button2_Click);
             // 
-            // dataGridView1
+            // dataGV
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(40, 485);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(802, 224);
-            this.dataGridView1.TabIndex = 12;
+            this.dataGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.quantityTBGV,
+            this.mUnitCBGV,
+            this.materialCBGV,
+            this.sizeCBGV,
+            this.categoryCBGV});
+            this.dataGV.Location = new System.Drawing.Point(40, 485);
+            this.dataGV.Name = "dataGV";
+            this.dataGV.Size = new System.Drawing.Size(802, 224);
+            this.dataGV.TabIndex = 12;
+            this.dataGV.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGV_CellEndEdit);
+            this.dataGV.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGV_DataError);
+            this.dataGV.DefaultValuesNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.dataGV_DefaultValuesNeeded);
             // 
             // pictureBox1
             // 
@@ -196,6 +214,47 @@ namespace Warehouse_Sol
             this.saveBTN.Visible = false;
             this.saveBTN.Click += new System.EventHandler(this.saveBTN_Click);
             // 
+            // printPreviewDialog1
+            // 
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
+            // 
+            // quantityTBGV
+            // 
+            this.quantityTBGV.HeaderText = "Ποσότητα";
+            this.quantityTBGV.Name = "quantityTBGV";
+            // 
+            // mUnitCBGV
+            // 
+            this.mUnitCBGV.HeaderText = "Μονάδα Μέτρησης";
+            this.mUnitCBGV.Items.AddRange(new object[] {
+            "Τεμ.",
+            "Ζευγ."});
+            this.mUnitCBGV.Name = "mUnitCBGV";
+            // 
+            // materialCBGV
+            // 
+            this.materialCBGV.HeaderText = "Υλικό";
+            this.materialCBGV.Name = "materialCBGV";
+            // 
+            // sizeCBGV
+            // 
+            this.sizeCBGV.HeaderText = "Μέγεθος";
+            this.sizeCBGV.Name = "sizeCBGV";
+            // 
+            // categoryCBGV
+            // 
+            this.categoryCBGV.HeaderText = "Κατηγορία";
+            this.categoryCBGV.Items.AddRange(new object[] {
+            "Καινούργια",
+            "Μεταχειρισμένα"});
+            this.categoryCBGV.Name = "categoryCBGV";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -204,8 +263,8 @@ namespace Warehouse_Sol
             this.ClientSize = new System.Drawing.Size(884, 777);
             this.Controls.Add(this.saveBTN);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.printPreviewBTN);
+            this.Controls.Add(this.dataGV);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.changeDetBTN);
             this.Controls.Add(this.melos2TB);
@@ -222,7 +281,7 @@ namespace Warehouse_Sol
             this.Name = "Form1";
             this.Text = " Απογραφή Προιόντων Αποθήκης";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -243,10 +302,17 @@ namespace Warehouse_Sol
         private System.Windows.Forms.TextBox melos2TB;
         private System.Windows.Forms.Button changeDetBTN;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button printPreviewBTN;
+        private System.Windows.Forms.DataGridView dataGV;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button saveBTN;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quantityTBGV;
+        private System.Windows.Forms.DataGridViewComboBoxColumn mUnitCBGV;
+        private System.Windows.Forms.DataGridViewComboBoxColumn materialCBGV;
+        private System.Windows.Forms.DataGridViewComboBoxColumn sizeCBGV;
+        private System.Windows.Forms.DataGridViewComboBoxColumn categoryCBGV;
     }
 }
 
