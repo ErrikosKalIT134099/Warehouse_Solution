@@ -8,3 +8,6 @@ C:\Users\ekal6\Desktop\Warehouse_Solution\Warehouse_Sol\Warehouse_Sol\obj\Debug\
 C:\Users\ekal6\Desktop\Warehouse_Solution\Warehouse_Sol\Warehouse_Sol\obj\Debug\Warehouse_Sol.csproj.CoreCompileInputs.cache
 C:\Users\ekal6\Desktop\Warehouse_Solution\Warehouse_Sol\Warehouse_Sol\obj\Debug\Warehouse_Sol.exe
 C:\Users\ekal6\Desktop\Warehouse_Solution\Warehouse_Sol\Warehouse_Sol\obj\Debug\Warehouse_Sol.pdb
+C:\Users\ekal6\Desktop\Warehouse_Solution\Warehouse_Sol\Warehouse_Sol\bin\Debug\INIFileParser.dll
+C:\Users\ekal6\Desktop\Warehouse_Solution\Warehouse_Sol\Warehouse_Sol\bin\Debug\INIFileParser.xml
+C:\Users\ekal6\Desktop\Warehouse_Solution\Warehouse_Sol\Warehouse_Sol\obj\Debug\Warehouse_Sol.csproj.CopyComplete

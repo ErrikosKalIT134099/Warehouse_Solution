@@ -29,6 +29,7 @@ namespace Warehouse_Sol
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.titleLB = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -43,7 +44,10 @@ namespace Warehouse_Sol
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.saveBTN = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // titleLB
@@ -112,6 +116,7 @@ namespace Warehouse_Sol
             // 
             // headTB
             // 
+            this.headTB.Enabled = false;
             this.headTB.Location = new System.Drawing.Point(18, 286);
             this.headTB.Name = "headTB";
             this.headTB.Size = new System.Drawing.Size(160, 20);
@@ -119,6 +124,7 @@ namespace Warehouse_Sol
             // 
             // melosTB
             // 
+            this.melosTB.Enabled = false;
             this.melosTB.Location = new System.Drawing.Point(18, 363);
             this.melosTB.Name = "melosTB";
             this.melosTB.Size = new System.Drawing.Size(160, 20);
@@ -126,6 +132,7 @@ namespace Warehouse_Sol
             // 
             // melos2TB
             // 
+            this.melos2TB.Enabled = false;
             this.melos2TB.Location = new System.Drawing.Point(18, 399);
             this.melos2TB.Name = "melos2TB";
             this.melos2TB.Size = new System.Drawing.Size(160, 20);
@@ -139,6 +146,7 @@ namespace Warehouse_Sol
             this.changeDetBTN.TabIndex = 10;
             this.changeDetBTN.Text = "Αλλαγή Στοιχείων";
             this.changeDetBTN.UseVisualStyleBackColor = true;
+            this.changeDetBTN.Click += new System.EventHandler(this.changeDetBTN_Click);
             // 
             // button1
             // 
@@ -167,12 +175,35 @@ namespace Warehouse_Sol
             this.dataGridView1.Size = new System.Drawing.Size(802, 224);
             this.dataGridView1.TabIndex = 12;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 79);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 14;
+            this.pictureBox1.TabStop = false;
+            // 
+            // saveBTN
+            // 
+            this.saveBTN.Location = new System.Drawing.Point(332, 245);
+            this.saveBTN.Name = "saveBTN";
+            this.saveBTN.Size = new System.Drawing.Size(91, 23);
+            this.saveBTN.TabIndex = 15;
+            this.saveBTN.Text = "Αποθήκευση";
+            this.saveBTN.UseVisualStyleBackColor = true;
+            this.saveBTN.Visible = false;
+            this.saveBTN.Click += new System.EventHandler(this.saveBTN_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(884, 777);
+            this.Controls.Add(this.saveBTN);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button1);
@@ -187,10 +218,12 @@ namespace Warehouse_Sol
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.titleLB);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = " Απογραφή Προιόντων Αποθήκης";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -212,6 +245,8 @@ namespace Warehouse_Sol
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button saveBTN;
     }
 }
 
