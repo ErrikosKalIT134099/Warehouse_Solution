@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Data.OleDb;
+using System.Drawing;
 using System.Windows.Forms;
 using static Warehouse_Sol.Settings.SettingsAssistant;
 namespace Warehouse_Sol
@@ -187,6 +188,46 @@ namespace Warehouse_Sol
         {
             e.Row.Cells["mUnitCBGV"].Value = "Τεμ.";
             e.Row.Cells["categoryCBGV"].Value = "Καινούργια";
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            int mid = 330;
+            string font = "Arial";
+
+            System.Drawing.Image img = System.Drawing.Image.FromFile("1.png");
+            e.Graphics.DrawImage(img, 50, 60, 140, 80);
+
+            RectangleF docCover = new RectangleF(40, 30, 770, 1050);
+            e.Graphics.DrawRectangle(Pens.Black, Rectangle.Round(docCover));
+
+            e.Graphics.DrawString(arKivotiouLB.Text, new Font(font, 12, FontStyle.Bold | FontStyle.Underline), Brushes.Black, new Point(546, 147));
+            e.Graphics.DrawString(arKivotiouTB.Text, new Font(font, 12, FontStyle.Bold), Brushes.Black, new Point(720, 146));
+
+            StringFormat sf = new StringFormat();
+            sf.LineAlignment = StringAlignment.Center;
+            sf.Alignment = StringAlignment.Center;
+
+            e.Graphics.DrawString("Δελτίο Απογράφης Προϊόντων Αποθήκης", new Font(font, 16, FontStyle.Bold | FontStyle.Underline), Brushes.Black, new Point(450, 60), sf);
+
+            //Gridvieew data 
+
+            var height = 545;
+
+            for (int i = countedNo; i < dataGV.Rows.Count; i++)
+            {
+                var row = dataGV.Rows[i];
+                e.Graphics.DrawString(row.Cells["quantityTBGV"].Value.ToString(), new Font(font, 12, FontStyle.Regular), Brushes.Black, new Point(90, height));
+                e.Graphics.DrawString(row.Cells["mUnitCBGV"].Value.ToString(), new Font(font, 12, FontStyle.Regular), Brushes.Black, new Point(140, height));
+                e.Graphics.DrawString(row.Cells["materialCBGV"].Value.ToString(), new Font(font, 12, FontStyle.Regular), Brushes.Black, new Point(190, height));
+                e.Graphics.DrawString(row.Cells["sizeCBGV"].Value.ToString(), new Font(font, 12, FontStyle.Regular), Brushes.Black, new Point(440, height));
+                e.Graphics.DrawString(row.Cells["categoryCBGV"].Value.ToString(), new Font(font, 12, FontStyle.Regular), Brushes.Black, new Point(540, height));
+
+
+
+                height += 20;
+            }
+            countedNo++;
         }
     }
     }
