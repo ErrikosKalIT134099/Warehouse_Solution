@@ -210,24 +210,38 @@ namespace Warehouse_Sol
 
             e.Graphics.DrawString("Δελτίο Απογράφης Προϊόντων Αποθήκης", new Font(font, 16, FontStyle.Bold | FontStyle.Underline), Brushes.Black, new Point(450, 60), sf);
 
+            e.Graphics.DrawString("Σήμερα στην κομοτηνή την " + dateTimePicker1.Text +"η εξης επιτροπή ", new Font(font, 12, FontStyle.Regular), Brushes.Black, new Point(83, 278));
+            e.Graphics.DrawString("η οποια αποτελειται απο:  ", new Font(font, 12, FontStyle.Regular), Brushes.Black, new Point(51, 304));
+
+            e.Graphics.DrawString("1. "+headTB.Text+" ως διευθυντής", new Font(font, 12, FontStyle.Regular), Brushes.Black, new Point(170, 345));
+            e.Graphics.DrawString("Και ως Μέλη:", new Font(font, 12, FontStyle.Regular), Brushes.Black, new Point(170, 382));
+            e.Graphics.DrawString("2. " + melos2TB.Text, new Font(font, 12, FontStyle.Regular), Brushes.Black, new Point(170, 419));
+            e.Graphics.DrawString("3. " + melosTB.Text, new Font(font, 12, FontStyle.Regular), Brushes.Black, new Point(170, 450));
+
+            e.Graphics.DrawString("Έλαβε την ευθύνη για την καταμέτρηση και συσκευασία των παρακάτω προιόντων:", new Font(font, 12, FontStyle.Regular), Brushes.Black, new Point(83, 525));
+            e.Graphics.DrawString("Ποσοτητα   Μοναδα Μετρησης               Προιόν              Μεγεθος     Κατηγορία", new Font(font, 12, FontStyle.Bold), Brushes.Black, new Point(83, 545));
+
             //Gridvieew data 
 
-            var height = 545;
+            var height = 565;
 
             for (int i = countedNo; i < dataGV.Rows.Count; i++)
             {
                 var row = dataGV.Rows[i];
-                e.Graphics.DrawString(row.Cells["quantityTBGV"].Value.ToString(), new Font(font, 12, FontStyle.Regular), Brushes.Black, new Point(90, height));
-                e.Graphics.DrawString(row.Cells["mUnitCBGV"].Value.ToString(), new Font(font, 12, FontStyle.Regular), Brushes.Black, new Point(140, height));
-                e.Graphics.DrawString(row.Cells["materialCBGV"].Value.ToString(), new Font(font, 12, FontStyle.Regular), Brushes.Black, new Point(190, height));
-                e.Graphics.DrawString(row.Cells["sizeCBGV"].Value.ToString(), new Font(font, 12, FontStyle.Regular), Brushes.Black, new Point(440, height));
-                e.Graphics.DrawString(row.Cells["categoryCBGV"].Value.ToString(), new Font(font, 12, FontStyle.Regular), Brushes.Black, new Point(540, height));
+                e.Graphics.DrawString(row.Cells["quantityTBGV"].Value.ToString(), new Font(font, 12, FontStyle.Regular), Brushes.Black, new Point(110, height));
+                e.Graphics.DrawString(row.Cells["mUnitCBGV"].Value.ToString(), new Font(font, 12, FontStyle.Regular), Brushes.Black, new Point(210, height));
+                e.Graphics.DrawString(row.Cells["materialCBGV"].Value.ToString(), new Font(font, 12, FontStyle.Regular), Brushes.Black, new Point(405, height));
+                e.Graphics.DrawString(row.Cells["sizeCBGV"].Value.ToString(), new Font(font, 12, FontStyle.Regular), Brushes.Black, new Point(550, height));
+                e.Graphics.DrawString(row.Cells["categoryCBGV"].Value.ToString(), new Font(font, 12, FontStyle.Regular), Brushes.Black, new Point(625, height));
 
 
 
                 height += 20;
             }
             countedNo++;
+
+            e.Graphics.DrawString("Ο Διευθυντής" , new Font(font, 12, FontStyle.Regular), Brushes.Black, new Point(77, 880));
+            e.Graphics.DrawString(headTB.Text, new Font(font, 12, FontStyle.Regular), Brushes.Black, new Point(77, 980));
         }
     }
     }
