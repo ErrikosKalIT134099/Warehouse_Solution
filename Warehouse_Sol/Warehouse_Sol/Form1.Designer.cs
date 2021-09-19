@@ -44,15 +44,15 @@ namespace Warehouse_Sol
             this.button1 = new System.Windows.Forms.Button();
             this.printPreviewBTN = new System.Windows.Forms.Button();
             this.dataGV = new System.Windows.Forms.DataGridView();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.saveBTN = new System.Windows.Forms.Button();
-            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
-            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.quantityTBGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mUnitCBGV = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.materialCBGV = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.sizeCBGV = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.categoryCBGV = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.saveBTN = new System.Windows.Forms.Button();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             ((System.ComponentModel.ISupportInitialize)(this.dataGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -193,6 +193,37 @@ namespace Warehouse_Sol
             this.dataGV.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGV_DataError);
             this.dataGV.DefaultValuesNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.dataGV_DefaultValuesNeeded);
             // 
+            // quantityTBGV
+            // 
+            this.quantityTBGV.HeaderText = "Ποσότητα";
+            this.quantityTBGV.Name = "quantityTBGV";
+            // 
+            // mUnitCBGV
+            // 
+            this.mUnitCBGV.HeaderText = "Μονάδα Μέτρησης";
+            this.mUnitCBGV.Items.AddRange(new object[] {
+            "Τεμ.",
+            "Ζευγ."});
+            this.mUnitCBGV.Name = "mUnitCBGV";
+            // 
+            // materialCBGV
+            // 
+            this.materialCBGV.HeaderText = "Υλικό";
+            this.materialCBGV.Name = "materialCBGV";
+            // 
+            // sizeCBGV
+            // 
+            this.sizeCBGV.HeaderText = "Μέγεθος";
+            this.sizeCBGV.Name = "sizeCBGV";
+            // 
+            // categoryCBGV
+            // 
+            this.categoryCBGV.HeaderText = "Κατηγορία";
+            this.categoryCBGV.Items.AddRange(new object[] {
+            "Καινούργια",
+            "Μεταχειρισμένα"});
+            this.categoryCBGV.Name = "categoryCBGV";
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
@@ -227,37 +258,6 @@ namespace Warehouse_Sol
             // printDocument1
             // 
             this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
-            // 
-            // quantityTBGV
-            // 
-            this.quantityTBGV.HeaderText = "Ποσότητα";
-            this.quantityTBGV.Name = "quantityTBGV";
-            // 
-            // mUnitCBGV
-            // 
-            this.mUnitCBGV.HeaderText = "Μονάδα Μέτρησης";
-            this.mUnitCBGV.Items.AddRange(new object[] {
-            "Τεμ.",
-            "Ζευγ."});
-            this.mUnitCBGV.Name = "mUnitCBGV";
-            // 
-            // materialCBGV
-            // 
-            this.materialCBGV.HeaderText = "Υλικό";
-            this.materialCBGV.Name = "materialCBGV";
-            // 
-            // sizeCBGV
-            // 
-            this.sizeCBGV.HeaderText = "Μέγεθος";
-            this.sizeCBGV.Name = "sizeCBGV";
-            // 
-            // categoryCBGV
-            // 
-            this.categoryCBGV.HeaderText = "Κατηγορία";
-            this.categoryCBGV.Items.AddRange(new object[] {
-            "Καινούργια",
-            "Μεταχειρισμένα"});
-            this.categoryCBGV.Name = "categoryCBGV";
             // 
             // Form1
             // 
