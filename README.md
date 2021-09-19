@@ -48,7 +48,7 @@
 ---
 
 ## Highlights
-![SearchBar](images/appTourGIF.gif)
+![SearchBar](images/warehouseGIF.gif)
 > Γρήγορη ματιά στην εφαρμογή
 <br/>
 
